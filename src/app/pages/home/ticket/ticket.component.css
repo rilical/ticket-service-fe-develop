@@ -1,0 +1,125 @@
+.ticket .item {
+    display: inline-block;
+    padding: 4px 20px;
+    width: 100%;
+}
+
+.inner-point .item {
+    border-bottom: 1px solid #d7f0fd;
+}
+
+.inner-point .item div {
+    display: inline;
+    padding-left: 10px;
+}
+
+.info {
+    background: #f4fafd;
+}
+
+.ticket-top {
+    display: flex;
+    flex-direction: row;
+}
+
+.ticket-top .options {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+}
+
+.ticket-top .options .option {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    background-size: contain;            
+}
+
+.ticket-top .options .option:hover {
+    filter: brightness(0.75);
+}
+
+.ticket-top .options .option:active {
+    filter: brightness(0.5);
+}
+
+.ticket-top .options .status {
+    background-color: #fcefd9;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+    color: #f7d193;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+/* New styles for reply section */
+.new-reply-section {
+    margin-top: 20px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.new-reply-section h3 {
+    margin-bottom: 10px;
+}
+
+.new-reply-section textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-height: 100px;
+    resize: vertical;
+}
+
+.reply-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.reply-options input[type="file"] {
+    width: 50%;
+}
+
+.formatting-options {
+    display: flex;
+    gap: 5px;
+}
+
+.formatting-options button {
+    background: none;
+    border: 1px solid #ccc;
+    padding: 5px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.formatting-options button:hover {
+    background-color: #f2f2f2;
+}
+
+.new-reply-section .submit-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.new-reply-section .submit-button:hover {
+    background-color: #45a049;
+}

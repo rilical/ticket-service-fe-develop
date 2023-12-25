@@ -1,0 +1,99 @@
+<div class="ticket-filter">
+  <form [formGroup]="filterFrom">
+    <h1 mat-dialog-title>Ticket <span class="share-name">search</span></h1>
+    <div mat-dialog-content>
+
+      <div class="form-field">
+        <label class="form-label">ID</label>
+        <mat-form-field appearance="outline">
+          <input class="" formControlName="id" matInput name="id" placeholder="ID">
+          <mat-error></mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-field">
+        <label class="form-label">Status</label>
+        <mat-form-field appearance="outline">
+
+          <select formControlName="status" matNativeControl>
+            <option *ngFor="let item of statuses;let i=index" value="{{item.id}}">{{item.name}}</option>
+          </select>
+        </mat-form-field>
+      </div>
+      <div class="form-field">
+        <label class="form-label">Department</label>
+        <mat-form-field appearance="outline">
+
+          <select formControlName="departmentId" matNativeControl>
+            <option [ngValue]="null" disabled hidden selected>Department Id</option>
+            <option *ngFor="let item of departments;let i=index" value="{{item.id}}">{{item.name}}</option>
+          </select>
+        </mat-form-field>
+      </div>
+      <div class="form-field">
+        <label class="form-label">Category</label>
+        <mat-form-field appearance="outline">
+
+          <select formControlName="categoryId" matNativeControl>
+            <option *ngFor="let item of categories;let i=index" value="{{item.id}}">{{item.name}}</option>
+          </select>
+        </mat-form-field>
+      </div>
+      <div class="form-field">
+        <label class="form-label">Origin Department</label>
+        <mat-form-field appearance="outline">
+
+          <select formControlName="originDeptId" matNativeControl>
+            <option *ngFor="let item of departments;let i=index" value="{{item.id}}">{{item.name}}</option>
+          </select>
+        </mat-form-field>
+      </div>
+      <div class="form-field">
+        <label class="form-label">Init Department</label>
+        <mat-form-field appearance="outline">
+
+          <select formControlName="initDeptId" matNativeControl>
+            <option *ngFor="let item of departments;let i=index" value="{{item.id}}">{{item.name}}</option>
+          </select>
+        </mat-form-field>
+      </div>
+      <div class="form-field">
+        <label class="form-label">Search Query</label>
+        <mat-form-field appearance="outline">
+          <input class="" formControlName="searchQuery" matInput name="searchQuery" placeholder="Search">
+          <mat-error></mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-field">
+        <label class="form-label">Created At</label>
+        <mat-form-field>
+          <input [matDatepicker]="picker2" formControlName="createdAt" matInput name="createdAt"
+                 placeholder="Choose a date">
+          <mat-datepicker-toggle [for]="picker2" matSuffix></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="form-field">
+        <label class="form-label">Updated At</label>
+        <mat-form-field>
+          <input [matDatepicker]="picker3" formControlName="updatedAt" matInput name="updatedAt"
+                 placeholder="Choose a date">
+          <mat-datepicker-toggle [for]="picker3" matSuffix></mat-datepicker-toggle>
+          <mat-datepicker #picker3></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+    <div mat-dialog-actions>
+      <button (click)="onNoClick()" mat-button>Close</button>
+      <button (click)="search()"
+              [color]="'primary'"
+              [disabled]="filterFrom.invalid"
+              class="px-8 btn-dilog"
+              mat-flat-button
+              type="button">
+        search
+      </button>
+
+
+    </div>
+  </form>
+</div>

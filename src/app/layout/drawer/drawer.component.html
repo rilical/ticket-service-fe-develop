@@ -1,0 +1,20 @@
+<mat-drawer-container class="drawer-container">
+  <mat-drawer mode="side" opened>
+    <img class="logo" src="assets/logo.png"/>
+    <div class="navigation">
+      <div class="icon">
+        <mat-icon aria-hidden="false" aria-label="home" fontIcon="home"></mat-icon>
+      </div>
+      <div class="icon">
+        <mat-icon aria-hidden="false" aria-label="settings" fontIcon="settings"></mat-icon>
+      </div>
+      <div class="icon">
+        <mat-icon aria-hidden="false" aria-label="users" fontIcon="users"></mat-icon>
+      </div>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-navbar></app-navbar>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

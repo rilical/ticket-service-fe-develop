@@ -1,0 +1,16 @@
+<table >
+    <tr class="headers">
+        <th  class="cell" >Action </th>
+        <th class="cell">OperationType </th>     
+        <th class="cell">ActionDesc</th>
+        <th class="cell">User</th>
+        <th class="cell">ActionDate</th>
+    </tr>
+    <tr *ngFor="let action of actionsLogs | async">
+        <th  class="cell">{{ action.action }}</th>
+        <th class="cell">{{ action.operationType }}</th>
+        <th class="cell">{{ action.actionDesc }}</th>
+        <th class="cell">{{ action.user }}</th>
+        <th class="cell">{{ action.actionDate }}</th>
+    </tr>
+</table>

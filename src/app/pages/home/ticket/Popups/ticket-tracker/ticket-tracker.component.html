@@ -1,0 +1,20 @@
+<table >
+    <tr class="headers">
+        <th>TrackerID</th>
+        <th>TicketID</th>
+        <th>Department</th>
+        <th>SourceDept</th>
+        <th>DestinationDept</th>
+        <th>Username</th>
+        <th>RecordedDate</th>
+    </tr>
+    <tr *ngFor="let track of ticketTracks | async">
+        <th  class="cell">{{ track.trackerID?.toString() }}</th>
+        <th class="cell">{{ track.ticketID }}</th>
+        <th class="cell">{{ track.department }}</th>
+        <th class="cell">{{ track.sourceDept }}</th>
+        <th class="cell">{{ track.distinationDept }}</th>
+        <th class="cell">{{ track.username }}</th>
+        <th class="cell">{{ track.recordedDate }}</th>
+    </tr>
+</table>

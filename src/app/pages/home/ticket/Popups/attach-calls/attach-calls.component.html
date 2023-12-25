@@ -1,0 +1,17 @@
+<table >
+    <tr class="headers">
+        <th class="cell">Id </th>
+        <th  class="cell">phone </th>
+        <th class="cell">FileName </th>
+        <th class="cell"> Attacher </th>
+        <th class="cell"> CreatedAt </th>
+    </tr>
+    <tr *ngFor="let call of attachCalls | async">
+        <th class="cell">{{ call.id }}</th>
+        <th  class="cell">{{ call.phone }}</th>
+        <th class="cell">{{ call.fileName }}</th>
+        <th class="cell">{{ call.attacher }}</th>
+        <th class="cell">{{ call.createdAt }}</th>
+    
+    </tr>
+</table>

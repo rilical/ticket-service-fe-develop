@@ -1,0 +1,121 @@
+<div class="filter">
+  <div class="row">
+  <div class="col">
+    <div class="filter-title">
+      Filter
+    </div>
+    <div class="des-title">
+      Display 5 of 50 Tickets
+    </div>
+  </div>
+  <div class="sort-box">
+    <div class="select-sort-box">
+      <p>Sort By</p>
+      <select [(ngModel)]="SelectedSortColumn" (change)="OnSelectSortColumn($event)">
+        <option value="Id">Id</option>
+        <option value="createdAt">Creation Date</option>
+        <option value="Name">Name</option>
+        <option value="updatedAt"> Updated Date</option>
+      </select>
+    </div>
+    <button (click)="ToggleSortDirection($event)">Ascending</button>
+  </div>
+</div>
+  <input (keyup)="onchangeSearch($event)" class="search-txt" id='searchTxt' placeholder="search"/>
+
+  <button (click)="search()" class="search-btn hand">
+
+
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="search"></mat-icon>
+
+
+  </button>
+  <div>
+    <button (click)="openDialog()" class="more-filter hand">
+      More filter
+    </button>
+    <button (click)="removeFilter()" class="remove-filter hand">
+      remove filters
+    </button>
+  </div>
+</div>
+
+<div (click)="openTicket(i)" *ngFor="let ticket of  (tickets$ | async);let i=index" [id]="'ticket'+i" class="ticket">
+
+  <div class="padding-left-10px">
+    <div class="bottom-section">
+      <div class="right-content">
+        <div class="section1">
+          <div class="user-profile">
+
+            <div>
+              <div class="tickettimeinfo">
+
+                            <span>
+                               Created :
+                                <span
+                                  title="{{ticket.createdAt | date:'MMM dd, y'}}">{{ticket.createdAt | date:'MMM dd, y'}}</span>
+                            </span>
+                <span style="padding-left:13px;">
+                                <span
+                                  title="{{ticket.createdAt | date:'MMM dd, y'}}"> Last Update :  {{ticket.updatedAt | date:'MMM dd, y' }}</span>
+                            </span>
+                <span>
+
+                            </span>
+              </div>
+            </div>
+
+            <div class="user-name">#{{ticket.id}} </div>
+
+            <div class="category">{{ticket.categoriesModel?.name}}</div>
+            <div class="category">General problems</div>
+            <div class="category" style="display: block;">{{ticket.departmentModel?.name}}</div>
+
+
+            <div class="inprogress {{ticket.statusesModel?.name | lowercase}}">{{ticket.statusesModel?.name}}</div>
+
+
+          </div>
+          <div class="content">
+            <div class="user-name">{{ticket.name}} </div>
+            <div class="description">
+              {{ticket.description}}
+            </div>
+          </div>
+
+
+          <div class="item text-center">
+            <div class="icon">
+              <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+            </div>
+            <div class="icon">
+              <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings"></mat-icon>
+            </div>
+            <div class="icon">
+              <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+
+            </div>
+            <div class="icon">
+              <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<mat-paginator #paginator
+               (page)="handlePageEvent($event)"
+               [hidePageSize]="true"
+               [length]="pageCount"
+               [pageSize]="10"
+               [showFirstLastButtons]="true"
+               aria-label="Select page"
+               class="demo-paginator">
+</mat-paginator>
+

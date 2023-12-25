@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ticket Component</title>
+    <link rel="stylesheet" href="./ticket.component.css">
+</head>
+<body>
+
+<div class="ticket info">
+  <div class="padding-left-10px">
+    <div class="top-section">
+      <div class="left-content">
+        <div class="item with-border-right">
+          <div class="title">Ticket ID</div>
+          <div class="description">7002084</div>
+        </div>
+        
+      </div>
+
+    </div>
+    <div class="bottom-section">
+
+      <div class="right-content">
+        <div class="section1" style="background: #fff;
+            margin: 3px;
+        padding-left: 14px;
+        padding-top: 14px;">
+        <div class="ticket-top">
+          <div class="user-profile">
+            <div  style="
+              background: #d2e7f1;
+              width: 47px;
+              height: 32px;
+              text-align: center;
+              padding-top: 7px;
+              float: left;
+              margin-right: 12px;
+              color: #47a3d1;
+          ">MW</div>
+            <div class="user-name">Mohammed Najeeb</div>
+            <div class="job-title">developer</div>
+          </div>
+          <div class="options">
+<button class="option" style="background-image: url('assets/TempOptionIcon.png');" (click)="onTicketTrackerClick()"></button>
+<button class="option" style="background-image: url('assets/TempOptionIcon.png');" (click)="onActionsLogsClick()"></button>
+<button class="option" style="background-image: url('assets/TempOptionIcon.png');" (click)="onAttachCallClick()"></button>
+<button class="option" style="background-image: url('assets/TempOptionIcon.png');"></button>
+<button class="option" style="background-image: url('assets/TempOptionIcon.png');"></button>
+<label class="status">in progress</label>
+          </div>
+        </div>
+          <div class="content">
+            <div class="title">Link problem</div>
+            <div class="description"> سلام عليكم ... اكو مشكله بالبلنك بالاون لاين سشن من نختار الاختيار brodband new  ونكت اسم اليوزر الاوفس اكو فرق 3 ساعات بالكونكشن تايم عن الوقت الحقيقي الي مكنك بيه اليوزر ... اليوزر  الي يكنك يطلع اون لاين 3 ساعات وهو صارله ثواني مكنكك يرجى المتابعه  
+            </div>
+          </div>
+          <div class="atachemtns">
+            <div class="title">Atachemtns</div>
+            <div class="description">
+              <div class="file">
+                <!--<mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="picture_as_pdf"></mat-icon>-->
+              </div>
+              <div class="img">
+                <img class="img" src="assets/profile.png"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div  class="section1" style="
+           width: 27%;
+    float: right;
+    background: white;
+
+    "> 
+    <div class="point">
+      <h5 style="
+      padding: 4px 20px;
+  ">Tickets</h5>
+    <div class="inner-point" >
+      <div class="item">
+        <div class="title">Ticket ID</div>
+        <div class="description">7002084</div>
+      </div>
+      <div class="item">
+
+        <div class="title">Department</div>
+        <div class="description">DEV</div>
+      </div>
+      <div class="item">
+        <div class="title">Problem</div>
+        <div class="description">General Problem</div>
+      </div>
+      <div class="item">
+        <div class="title">Problem Type</div>
+        <div class="description">General Issues</div>
+      </div>
+      
+    </div>
+      
+    </div>
+  <br><br>
+    <div class="point">
+      <h5 style="
+      padding: 4px 20px;
+  ">Points</h5>
+    <div class="inner-point" >
+      <div class="item">
+        <div class="title">Point</div>
+        <div class="description">10.180.53.@gasag</div>
+      </div>
+      <div class="item">
+        <div class="title">Reseller</div>
+        <div class="description">Faissal Gasy</div>
+      </div>
+      <div class="item">
+        <div class="title">Class</div>
+        <div class="description">Iraq/najaf (sub repeater)</div>
+      </div>
+
+      
+     
+      
+    </div>
+      
+    </div>
+  </div>
+      </div>
+   
+    </div>
+
+  </div>
+
+  <!-- New Reply Section -->
+  <div class="new-reply-section">
+    <h3>Add a Reply</h3>
+    <form [formGroup]="replyForm" (ngSubmit)="onSubmitReply()">
+      <textarea formControlName="message" placeholder="Type your reply here..." rows="4"></textarea>
+      
+      <!-- Attachment and Formatting Options -->
+      <div class="reply-options">
+        <input type="file" formControlName="attachments" multiple (change)="onFileSelected($event)">
+        <div class="formatting-options">
+          <button type="button" class="format-option">B</button>
+          <button type="button" class="format-option">I</button>
+          <button type="button" class="format-option">U</button>
+          <input type="color">
+        </div>
+      </div>
+
+      <!-- Visibility Checkbox -->
+      <div>
+        <input type="checkbox" id="visibleToReseller" formControlName="visibleToReseller">
+        <label for="visibleToReseller">Visible to Reseller</label>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit">Submit Reply</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>

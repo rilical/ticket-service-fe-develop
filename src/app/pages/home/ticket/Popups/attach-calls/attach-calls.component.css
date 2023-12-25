@@ -1,0 +1,18 @@
+.headers{
+    gap: 10px;
+    background-color: #67a4ec;
+    color: white;
+    font-size: 13;
+    }
+    .cell{
+      font-weight: 300;  
+      font-size: 12;
+      width: 130px;
+    }
+    table{
+        border-collapse: collapse;
+        padding: 20px;
+        text-align:center;
+        overflow-y:scroll ;
+    }
+    tr:nth-child(even){background-color: #f2f2f2;}

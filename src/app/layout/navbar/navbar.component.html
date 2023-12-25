@@ -1,0 +1,21 @@
+<div class="navbar">
+  <div class="title">
+    Ticket
+  </div>
+  <div class="right-setting">
+    <div class="icon with-border-right">
+      Filter
+    </div>
+    <div (click)="onClickCreateTicket()" class="icon with-border-right pointer">
+      Add new Ticket
+    </div>
+    <div class="icon with-border-right">
+      Refresh
+    </div>
+    <div class="icon with-border-right">
+      Settings
+    </div>
+    <app-user-profile class="with-border-right"></app-user-profile>
+  </div>
+  <create-ticket [isModalOpen]="isCreateTicketModalOpen"></create-ticket>
+</div>

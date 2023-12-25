@@ -1,0 +1,173 @@
+<div (click)="onCloseCreateTicket()" *ngIf="isModalOpen" class="side-modal-backdrop"></div>
+<div [@modalAnimation]="isModalOpen" class="side-modal" id="sideModal">
+  <div class="modal-title">
+    Create New Ticket
+  </div>
+  <div class="modal-sub-title-container">
+    <div class="modal-sub-title">
+      Ticket Type
+    </div>
+    <div class="modal-sub-title-line"></div>
+  </div>
+  <div class="fields-container fields-container-multi-fields">
+    <div class="input-component">
+      <label class="input-label">Ticket Type</label>
+      <div class="radio-input-group">
+        <div class="radio-input">
+          <label class="input-label" for="incident">Incident</label>
+          <input [defaultChecked]="true" id="incident" (click)="incidentCheckboxChange()"  name="ticker_type" type="radio" value="Incident">
+        </div>
+        <div class="radio-input">
+          <label class="input-label" for="task">Task</label>
+          <input id="task" name="ticker_type" (click)="taskCheckboxChange()"  type="radio" value="Task">
+        </div>
+      </div>
+    </div>
+    <div class="input-component" *ngIf="isIncidentTask">
+      <label class="input-label">Incident Ticket Type</label>
+      <div class="radio-input-group">
+        <div class="radio-input">
+          <label class="input-label"  for="point">Point/Tunnel Ticket</label>
+          <input [defaultChecked]="true"   id="point" name="incident_ticker_type" type="radio" >
+        </div>
+        <div class="radio-input">
+          <label class="input-label"  for="class">Class based ticket</label>
+          <input id="class" name="incident_ticker_type"  type="radio" >
+        </div>
+      </div>
+    </div>
+    <div class="input-component" *ngIf="!isIncidentTask">
+      <label class="input-label">Class Item</label>
+      <mat-form-field appearance="outline">
+        <input matInput id="classInput" list="classItemsList" (keydown)="classItemKeyDown($event)" [(ngModel)]="classItemId" placeholder="Select class">
+        <datalist id="classItemsList" >
+          <option *ngFor="let classItem of classItems | async" value="{{classItem.id}}">{{classItem.name}}</option>
+        </datalist>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="fields-container" *ngIf="isIncidentTask"> 
+    <div class="input-component">
+      <label class="input-label">Point / Tunnel</label>
+      <mat-form-field appearance="outline">
+        <input matInput id="pointInput" list="pointsList" (keydown)="pointKeyDown($event)" [(ngModel)]="pointId" placeholder="Select point">
+      </mat-form-field>
+      <datalist id="pointsList">
+        <option *ngFor="let point of points | async" value="{{point.id}}">{{point.name}}</option>
+  
+      </datalist>
+    </div>
+  </div>
+  <div class="modal-sub-title-container">
+    <div class="modal-sub-title">
+      Ticket Details
+    </div>
+    <div class="modal-sub-title-line"></div>
+  </div>
+  <div class="mt-25">
+    <div class="input-component">
+      <label class="input-label" for="title">Title</label>
+      <mat-form-field appearance="outline">
+        <input matInput id="titleInput" [(ngModel)]="title"  placeholder="Set a Title to your Ticket">
+      </mat-form-field>
+    </div>
+  </div>
+  <div>
+    <div class="input-component">
+      <label class="input-label" for="description">Description</label>
+      <mat-form-field appearance="outline">
+        <input matInput id="descriptionInput" [(ngModel)]="description" placeholder="Enter Full Description of the Ticket">
+      </mat-form-field>
+    </div>
+  </div>
+    <div class="input-component">
+      <label class="input-label">Department</label>
+      <mat-form-field appearance="outline">
+        <mat-label>Department</mat-label>
+        <mat-select [(ngModel)]="departmentId">
+          <mat-option *ngFor="let department of departments | async" value="{{department.id}}">{{department.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  <div class="fields-container-multi-fields">
+    <div class="input-component">
+      <label class="input-label">Category</label>
+      <mat-form-field appearance="outline">
+        <mat-label>Category</mat-label>
+        <mat-select [(ngModel)]="categoryId">
+          <mat-option *ngFor="let category of categories | async" value="{{category.id}}">{{category.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="input-component">
+      <label class="input-label">Problem</label>
+      <mat-form-field appearance="outline">
+        <mat-label>Problem</mat-label>
+        <mat-select [(ngModel)]="problemId">
+          <mat-option *ngFor="let problem of problems | async" value="{{problem.id}}">{{problem.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="fields-container-multi-fields">
+    <div class="input-component">
+      <label class="input-label">Status</label>
+      <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select [(ngModel)]="statusString">
+          <mat-option *ngFor="let statue of status | async" value="{{statue.id}}">{{statue.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="input-component">
+      <label class="input-label">State</label>
+      <mat-form-field appearance="outline">
+        <mat-label>State</mat-label>
+        <mat-select [(ngModel)]="stateId">
+          <mat-option *ngFor="let state of states | async" value="{{state.id}}">{{state.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="fields-container-multi-fields">
+    <div class="input-component">
+      <label class="input-label">Privacy Type</label>
+      <mat-form-field appearance="outline">
+        <mat-label>Privacy Type</mat-label>
+        <mat-select [(ngModel)]="privacyTypeID">
+          <mat-option value="1">Public</mat-option>
+          <mat-option value="0">Private (Company Only)</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+   
+  </div>
+  <div class="modal-sub-title-container">
+    <div class="modal-sub-title">
+      Attachments and Action
+    </div>
+    <div class="modal-sub-title-line"></div>
+  </div>
+  <div class="fields-container-multi-fields mt-25">
+    <div class="input-component">
+      <label class="input-label">Action</label>
+      <mat-form-field appearance="outline">
+        <mat-label>Action</mat-label>
+        <mat-select [(ngModel)]="actionId">
+          <mat-option *ngFor="let action of actions | async" value="{{action.typeId}}">{{action.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="input-component">
+      <label class="input-label">Is Locked</label>
+      <mat-checkbox [(ngModel)]="lockedToIssuer" name="is_locked" class="mt-6"></mat-checkbox>
+    </div>
+    <div class="input-component">
+      <label class="input-label">Is High Impact Ticket</label>
+      <mat-checkbox [(ngModel)]="isHighTicketImpact" name="is_High_ticket_impact" class="mt-6"></mat-checkbox>
+    </div>
+  </div>
+  <div class="fields-container-multi-fields mt-25">
+    <button class="Submit" (click)="createTicket()">Create</button>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reply Form Component</title>
+    <link rel="stylesheet" href="./reply-form.component.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+
+<div class="reply-form-container">
+    <form [formGroup]="replyForm" (ngSubmit)="onSubmitReply()">
+
+        <!-- Textarea for reply message -->
+        <div class="form-group">
+            <textarea formControlName="message" placeholder="Type your reply here..." rows="4" class="form-control"></textarea>
+        </div>
+
+        <!-- Buttons Container -->
+        <div class="buttons-container">
+            <!-- Attach File Button -->
+            <div class="form-group">
+                <input type="file" id="attachmentInput" formControlName="attachments" multiple class="file-input" hidden>
+                <label for="attachmentInput" class="custom-file-label">
+                    <i class="fas fa-paperclip"></i> Attach Files
+                </label>
+            </div>
+
+            <!-- Formatting Options -->
+            <div class="formatting-options">
+                <button type="button" class="format-option"><i class="fas fa-bold"></i></button>
+                <button type="button" class="format-option"><i class="fas fa-italic"></i></button>
+                <button type="button" class="format-option"><i class="fas fa-underline"></i></button>
+                <input type="color" class="format-color-picker">
+            </div>
+
+            <!-- Visibility Checkbox -->
+            <div class="form-group">
+                <input type="checkbox" id="visibleToReseller" formControlName="visibleToReseller">
+                <label for="visibleToReseller">Visible to Reseller</label>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary" [disabled]="!replyForm.valid">
+                <i class="fas fa-reply"></i> Submit Reply
+            </button>
+        </div>
+        
+    </form>
+</div>
+  
+</body>
+</html>

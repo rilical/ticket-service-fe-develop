@@ -1,0 +1,195 @@
+.ticket {
+  min-height: auto !important;
+  height: 166px !important;
+  margin: 0px -1px;
+  padding: 20px 0px;
+  border: 1px solid #d2d2d2;
+  border-left: transparent;
+
+  border-top: transparent;
+  cursor: grab;
+  width: auto;
+
+  &:hover {
+    background: #d2e7f1 !important;
+  }
+
+  .item {
+    display: block;
+
+    .tag {
+      font-size: 14px;
+    }
+  }
+
+  .section1, .right-content, .content {
+    width: 100%;
+  }
+
+  .tickettimeinfo {
+    font-size: 10px;
+    color: #959595;
+  }
+
+  .content {
+    padding-top: 8px;
+  }
+
+  .description {
+
+    padding-top: 0px;
+    max-height: 50px !important;
+    overflow: hidden;
+
+  }
+
+  .bottom-section {
+    padding-top: 0px;
+  }
+
+  .user-profile {
+    position: relative;
+    width: auto !important;
+
+    .inprogress {
+      position: absolute;
+      right: 10px;
+      top: 0px;
+
+    }
+  }
+
+  .text-center {
+    text-align: left;
+    padding: 10px 0px !important;
+  }
+
+  .icon {
+    border-radius: 100%;
+    border: 1px solid #7c7c7c;
+    padding: 9px 9px !important;
+    width: 10px;
+    height: 10px;
+    position: relative;
+    display: inline-block;
+    margin: 0px 6px !important;
+
+    .mat-icon {
+      color: #7c7c7c;
+      font-size: 21px;
+      position: absolute;
+      left: 4px;
+      top: 4px;
+    }
+  }
+
+}
+
+.filter {
+  margin-bottom: 10px;
+}
+
+.search-txt {
+  padding: 7px;
+  border-radius: 2px;
+  border: 1px solid silver;
+  width: 86%;
+}
+
+.search-btn {
+  padding: 2px 6px;
+  border-radius: 2px;
+  border: transparent;
+  background: #cfe7f3;
+  margin: 0px 6px;
+  position: relative;
+  top: 5px;
+  color: #fff;
+
+  .mat-icon {
+    position: relative;
+    top: 2px;
+
+  }
+}
+
+.more-filter {
+  padding: 2px 6px;
+  border-radius: 2px;
+  border: transparent;
+  background: #ffff;
+  margin: 0px 6px;
+  position: relative;
+  top: 5px;
+  color: #47a3d1;
+  font-size: 15px;
+}
+
+.remove-filter {
+  padding: 2px 6px;
+  border-radius: 2px;
+  border: transparent;
+  background: #ffff;
+  margin: 0px 6px;
+  position: relative;
+  top: 5px;
+  color: #ff7c7b;
+  font-size: 15px;
+}
+.col{
+  display: flex;
+  flex-direction: column;
+}
+.row{
+  display: flex;
+  flex-direction: row;
+}
+.sort-box{
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: 10px;
+  height: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+  gap: 2px;
+height: 25px;
+.select-sort-box{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap:2px;
+  background-color: #e3effd;
+  border-radius: 25px;
+  padding: 10px;
+  p {
+    color: #cbe0fa;
+    font-size: 14px;
+    height: fit-content;
+    display: flex;
+  }
+  select{
+    border:none;
+    background: none;
+    color: #67a4ec;
+    font-weight: bold;
+    outline: none;
+    
+  }
+}
+  button{
+    background-color: #e3effd;
+    border-radius: 25px;
+    color: #67a4ec;
+    border:none;
+    width: 120px;
+    font-weight: bold;
+    &:hover{
+      filter: brightness(0.75);
+    }
+    &:active{
+      filter: brightness(0.5);
+    }
+  }
+}
